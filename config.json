@@ -1,0 +1,11 @@
+{
+  "token" : "Your token here!",
+  "onatherThing" : "Onather string here!"
+  // delete these comments here later because they might make problems.
+  
+  /* So now you can define things here as much as you like,
+  even if you don't even use them. To make onather thing here,
+  just put a , at the end of the last one, and do
+  "name of that thing" : "The string to define it."
+  */ 
+}
