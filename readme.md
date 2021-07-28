@@ -1,4 +1,4 @@
-# Part one
-Getting your bot online!
+# Part two
+Using configs and jsons!
 
-This is a simple way to get your bot application online.
+A good way to stop copy pasting all the time, and just having to paste it ones in other file!
