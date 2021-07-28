@@ -1,27 +1,30 @@
 // make sure to read the last part before this one!
 
+// Here we are now looking at events!
 const Discord = require('discord.js')
 
 const client = new Discord.Client;
 
 const config = require('./config.json')
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-/* Find the file among your files! */
 
-// Now, you can simply do stuff like this! :
 const token = config.token;
-//^^^^^^^^^^^^^^^^^^^^^^^^^
-/* you can do config.( something
-that you have setted up in config.json)
-to have it!*/
+
+const log = console.log;
+// just a small shortcut
 
 client.on("ready", () => {
 log(`Hey! I am ready to go! \n Me online.`)
 }) 
+// the ready part is already an event, so you basicly got the idea of what it does in general.
 
+// on message event (the bot reciving a message)
+client.on('message', (message, log) => {
+  
+  // the bot runs the following code:
+  
+log(`just recived a message! The message had this in it: \n ${message}`)
+
+// now it ends the event
+});
 
 client.login(token)
-//^^^^^^^^^^^^^^^^^
-/* You just got the
-token from config.json!
-*/
