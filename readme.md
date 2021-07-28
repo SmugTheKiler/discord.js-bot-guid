@@ -1,4 +1,4 @@
-# Part two
-Using configs and jsons!
+# Part 3
+Adding events! 
 
-A good way to stop copy pasting all the time, and just having to paste it ones in other file!
+Find out whats happening in the servers your bot is in!
