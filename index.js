@@ -1,6 +1,6 @@
 // make sure to read the last part before this one!
 
-// Here we are now looking at events!
+// Lets make the very first command!
 const Discord = require('discord.js')
 
 const client = new Discord.Client;
@@ -10,37 +10,70 @@ const config = require('./config.json')
 const token = config.token;
 
 const log = console.log;
-// just a small shortcut
 
+/* 
+Before we add some commands, lets instead make sure
+our bot has a prefix. We do not want the bot to simply
+respond when a use sends "help" 
+It would confuse the user since he probably asked someone
+else for help, and not a bot. This way users can choose
+if they are talking to a bot, and the bot can deside if 
+someone is trying to do something with it.
+*/
+
+const prefix = config.prefix;
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^
+you will now have to add this:
+{
+  "prefix" : "Your awesome prefix"
+}
+*/
 client.on("ready", () => {
 log(`Hey! I am ready to go! \n Me online.`)
 }) 
-// the ready part is already an event, so you basicly got the idea of what it does in general.
 
-// on message event (the bot reciving a message)
 client.on('message', (message, log) => {
-  
-  // the bot runs the following code:
-  
+    
 log(`just recived a message! The message had this in it: \n ${message}`)
 
-// now it ends the event
+  
+  
+  
+  	if (!message.content.startsWith(prefix) || message.author.bot) return;
+  /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  check the message starts with your prefix, which we define in your
+  config.json file just like the token. Then, if it does, or it doesnt
+  but the message it self is sent by a bot, it will just simply return 
+  complitly.... nothing. */
+  
+	const args = message.content.slice(prefix.length).trim().split(/ +/);
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  devide the words after the prefix.*/
+	const command = args.shift().toLowerCase(); // Make a short cut to not write this every time. This basicly checks for a new command.
+  
+	if (command === 'ping') {
+  /*^^^^^^^^^^^^^^^^^^^^^^^
+  the if statment that checks
+  what the command it self is.
+  If the command is this, then
+  it would run the code under this.*/
+		message.channel.send('Pong.');
+    //replies with "Pong." in the channel
+    
+	} else if (command === 'beep') {
+ //*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ //  a brang new command with the new name.
+		message.channel.send('Boop.');
+	}
+  // this can just go on and on, all you have to is a simply change the name, and the code.
+  /* } (<= assuming you already had a command and your adding this to it) else if (command === 'Command name here') { //if the command is ran with this name, the following code will be ranned:
+  
+  // code here :)
+  
+  }
 });
-
-/*
-So heres more details. Baiscly client is the bot it self, and on is like when you are on a hill, and see something happen
-somewhere down there, so if something happens, it checks if there is an event for that. If there is none, it will simply
-return completly nothing. If there is, it will attempt to run code in it, and if there are intervals, it will run them.
-
-so here it is:
-
-client.on('event name', (get some stuff from previus code, because if you dont, it will have nothing you made your self like client, message, ect.) => {
-//some code for this event                                                                                                                        ^^^^^^
-//                                                                                                                                             This basicly
-                                                                                                                                               runs the code
-                                                                                                                                               that is in the
-                                                                                                                                               {}.
-}
 */
-
 client.login(token)
+
+  
+  //The command handler above is from discordjs.guide. We recommend you taking a look into it. 
