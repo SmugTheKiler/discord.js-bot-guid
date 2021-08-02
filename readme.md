@@ -16,3 +16,4 @@ or just order a simple bot with tips!
 Important!
 We litilery do not test this and write it from top of our heads, but it should defenetly work. 
 If it doesn't, please create a new issue.
+also some examples are used from [discord.js guide](https://discordjs.guide)
