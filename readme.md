@@ -1,4 +1,4 @@
 # Part 4
-Making your very first command!
+Making kick & ban command!
 
-Make your bot do something besides being online and reciving messages!
+Start moderating your server like an op!
