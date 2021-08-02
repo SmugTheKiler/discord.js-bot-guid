@@ -1,4 +1,4 @@
-# Part 3
-Adding events! 
+# Part 4
+Making your very first command!
 
-Find out whats happening in the servers your bot is in!
+Make your bot do something besides being online and reciving messages!
