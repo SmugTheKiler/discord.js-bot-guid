@@ -37,43 +37,53 @@ log(`just recived a message! The message had this in it: \n ${message}`)
 	} else if (command === 'beep') {
 
 		message.channel.send('Boop.');
-	} else if (command === 'kick') { // lets make a new command!
+	} else if (command === 'kick') {
 		
 	if (!message.mentions.users.size) {
-// 	check if a user has pinged someone
-//      he or she wanted to kick from the
-//      server.
+
 	return message.reply('you need to tag a user in order to kick them!');
-//      if he or she did not, it would send this sending that he or she did not
-//      ping anyone.
+
 	}
 
 	const torget = message.mentions.users.first();
-//      define the what where going to call "torget", which is what were going to attempt to kick.
+
 	if(!torget.kickable) {
-//      check if the torget is kickable 
+
 		message.channel.send('I am unable to kick this user...')
-//              if not then just send this to let the user know he or she cant be kicked
+
 	}
-//      if the torget passes all this, it would try to kick the user.
+
 	torget.kick();
-//      kick the user.
+
 	message.channel.send(`I kicked ${torget} succesfully!`)
-//      let the user know he or she was kicked.
+
 	} else if(command === 'ban') {
 	
 	if(!message.mentions.users.size) {
-//      just like last time, check if they pinged someone
+
 	return message.channel.send('You have to mention someone for me to ban!')
 	}
 	const user = message.mentions.users.size;
-//      define the user (target)
+
 	const guildID = message.guild.id;
-//      a shortcut to the guild id
 		
 	guildID.members.ban(user);
-//      ban the user!!
+		
 	message.channel.send(`Succesfully banned ${user}!`)
+		
+	} else if(command === 'embed') {
+	// make your first embed!
+		
+	const embed = new Discord.MessageEmbed()
+	.setTitle('This is the title!')
+	.setDescription('This is the description of your awesome new embed!')
+	.setColor('RANDOM') // Any simple color like RED, GREEN, YELLOW, ect, or any HTML hex colors.
+	.addField('This is the fild!', 'This is the small part of a field')
+	.addField('This is a new field!', 'You can make as much of these as you want!')
+	.setFooter('This is the smallest part of the embed!')
+	
+	message.channel.send(embed)
+//      send the embed!
 	}
 
 client.login(token)
