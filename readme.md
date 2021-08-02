@@ -1,4 +1,4 @@
-# Part 5
-Making kick & ban command!
+# Part 6
+Making your first embeds!
 
-Start moderating your server like an op!
+Make your bot send awesome embeds instead of just plain old text!
