@@ -60,6 +60,20 @@ log(`just recived a message! The message had this in it: \n ${message}`)
 //      kick the user.
 	message.channel.send(`I kicked ${torget} succesfully!`)
 //      let the user know he or she was kicked.
+	} else if(command === 'ban') {
+	
+	if(!message.mentions.users.size) {
+//      just like last time, check if they pinged someone
+	return message.channel.send('You have to mention someone for me to ban!')
+	}
+	const user = message.mentions.users.size;
+//      define the user (target)
+	const guildID = message.guild.id;
+//      a shortcut to the guild id
+		
+	guildID.members.ban(user);
+//      ban the user!!
+	message.channel.send(`Succesfully banned ${user}!`)
 	}
 
 client.login(token)
