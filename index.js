@@ -1,6 +1,6 @@
 // make sure to read the last part before this one!
 
-// Here we will start making commands to moderate our bots!
+// Make your server a safer and sfw server with this! detect bad words, and delete em!
 const Discord = require('discord.js')
 
 const client = new Discord.Client;
@@ -12,17 +12,18 @@ const token = config.token;
 const log = console.log;
 
 const prefix = config.prefix;
-
+// lets define our badWords.
+const badWords = config.blackListedWords;
+/*
+remember to update your config.json file!
+*/
 client.on("ready", () => {
 log(`Hey! I am ready to go! \n Me online.`)
 }) 
 
 client.on('message', (message, log) => {
     
-log(`just recived a message! The message had this in it: \n ${message}`)
-
-  
-  
+log(`just recived a message! The message had this in it: \n ${message}`)  
   
   	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -30,6 +31,15 @@ log(`just recived a message! The message had this in it: \n ${message}`)
 
 	const command = args.shift().toLowerCase();
   
+	// Lets start with actiually coding.
+	
+	if(message.includes(badWord)) { // check if the message has a bad word. If it does, it will run the following code.
+	message.delete()  // delete the message
+		message.channel.send('Hey you! Dont say that word!') // tell the user to not say that word again
+	}
+	
+	
+	// all stuff form previus parts
 	if (command === 'ping') {
 
 		message.channel.send('Pong.');
@@ -72,18 +82,16 @@ log(`just recived a message! The message had this in it: \n ${message}`)
 	message.channel.send(`Succesfully banned ${user}!`)
 		
 	} else if(command === 'embed') {
-	// make your first embed!
 		
 	const embed = new Discord.MessageEmbed()
 	.setTitle('This is the title!')
 	.setDescription('This is the description of your awesome new embed!')
-	.setColor('RANDOM') // Any simple color like RED, GREEN, YELLOW, ect, or any HTML hex colors.
+	.setColor('RANDOM')
 	.addField('This is the fild!', 'This is the small part of a field')
 	.addField('This is a new field!', 'You can make as much of these as you want!')
 	.setFooter('This is the smallest part of the embed!')
 	
 	message.channel.send(embed)
-//      send the embed!
 	}
 
 client.login(token)
