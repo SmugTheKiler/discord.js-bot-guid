@@ -1,4 +1,4 @@
-# Part 6
-Making your first embeds!
+# Part 7
+Get rid of bad words in your awesome server!
 
-Make your bot send awesome embeds instead of just plain old text!
+Your bot will auto delete words in your guild (server) if it sees it!
