@@ -12,18 +12,15 @@ const token = config.token;
 const log = console.log;
 
 const prefix = config.prefix;
-// lets define our badWords.
 const badWords = config.blackListedWords;
-/*
-remember to update your config.json file!
-*/
+
 client.on("ready", () => {
-log(`Hey! I am ready to go! \n Me online.`)
+log(`Hey! I am ready to go! \n ${client.username}'s online.`)
 }) 
 
 client.on('message', (message, log) => {
     
-log(`just recived a message! The message had this in it: \n ${message}`)  
+// log(`just recived a message! The message had this in it: \n ${message}`)  
   
   	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -31,15 +28,13 @@ log(`just recived a message! The message had this in it: \n ${message}`)
 
 	const command = args.shift().toLowerCase();
   
-	// Lets start with actiually coding.
 	
-	if(message.includes(badWord)) { // check if the message has a bad word. If it does, it will run the following code.
-	message.delete()  // delete the message
-		message.channel.send('Hey you! Dont say that word!') // tell the user to not say that word again
+	if(message.includes(badWord)) { 
+	message.delete()
+		message.channel.send('Hey you! Dont say that word!')
 	}
 	
 	
-	// all stuff form previus parts
 	if (command === 'ping') {
 
 		message.channel.send('Pong.');
@@ -92,6 +87,15 @@ log(`just recived a message! The message had this in it: \n ${message}`)
 	.setFooter('This is the smallest part of the embed!')
 	
 	message.channel.send(embed)
-	}
+	} else if(command === 'say') { // create the command
+  let msg = args[] // just change the args into the message to make it easier to understand
+
+  const embed = new Discord.MessageEmbed() // create the embed so no one would be pinged if there was a mention inside of it.
+  .setTitle(msg) // Title is the message
+  .setDescription(`A totaly secret words`) //description.... I would make this the message but nah
+  .setFooter('||' + message.author.id.toString() + '||') // the id.... (in a secret thing)
+
+  message.channel.send(embed); // send the embed
+  };
 
 client.login(token)

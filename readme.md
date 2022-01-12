@@ -1,4 +1,5 @@
 # Part 7
-Get rid of bad words in your awesome server!
+Say command!
 
-Your bot will auto delete words in your guild (server) if it sees it!
+Let the members say something without anyone knowing who did it 
+(almost)
