@@ -77,7 +77,7 @@ log(`just recived a message! The message had this in it: \n ${message}`)
 	const embed = new Discord.MessageEmbed()
 	.setTitle('This is the title!')
 	.setDescription('This is the description of your awesome new embed!')
-	.setColor('RANDOM') // Any simple color like RED, GREEN, YELLOW, ect, or any HTML hex colors.
+	.setColor('RANDOM') // Any simple color like RED, GREEN, YELLOW, ect, or any HTML hex colors/code.
 	.addField('This is the fild!', 'This is the small part of a field')
 	.addField('This is a new field!', 'You can make as much of these as you want!')
 	.setFooter('This is the smallest part of the embed!')
