@@ -14,6 +14,8 @@ You can donate me personally [here](https://patreon.com/SmugTheKiler) or support
 or just order a simple bot with tips!
 
 Important!
-We litilery do not test this and write it from top of our heads, but it should defenetly work. 
+We litilery do not test this and write it from top of our heads, but it should defenetly still work. 
 If it doesn't, please create a new issue.
 also some examples are used from [discord.js guide](https://discordjs.guide)
+
+(ALL FROM DISCORD.JS V12)
